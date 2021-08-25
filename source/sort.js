@@ -2,9 +2,9 @@
 
 const sort = (sentence) => {
     if (typeof sentence !== "string")
-        return sentence;
+        return "";
 
-    let collator = new Intl.Collator(["ru-RU", 'en-EN'], {sensitivity: "accent"});
+    let collator = new Intl.Collator(["ru-RU", 'en-EN'], {sensitivity: "accent", ignorePunctuation: true});
     return sentence.toLowerCase().split(' ')
         .map(word => word.split('').sort(function (a, b) {
             return collator.compare(a, b);
