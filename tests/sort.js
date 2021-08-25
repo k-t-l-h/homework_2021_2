@@ -37,9 +37,10 @@ QUnit.module('Тестируем функцию sort', function () {
 		assert.strictEqual(sort('космический корабль летит на марс'), 'Абклорь Амрс Ан Еиийккмоссч Еилтт');
 		assert.strictEqual(sort('i love frontend'), 'Defnnort Elov I');
 		assert.strictEqual(sort('hello world'), 'Dlorw Ehllo');
+		assert.strictEqual(sort(''), '');
 	});
 
-	QUnit.test('Функция работает корректно с неправильным выводом', function (assert) {
+	QUnit.test('Функция работает корректно с неправильным вводом', function (assert) {
 		assert.strictEqual(sort(undefined), '');
 		assert.strictEqual(sort(null), '');
 		assert.strictEqual(sort(true), '');
@@ -47,5 +48,9 @@ QUnit.module('Тестируем функцию sort', function () {
 		assert.strictEqual(sort(10n), '');
 	});
 
+	QUnit.test('Функция работает со смешанным вводом', function (assert) {
+		assert.strictEqual(sort('a а б b c в'), 'A B C А Б В', 'Работает с английским и русскими алфавитами');
+		assert.strictEqual(sort('a  а  б  b  c  в'), 'A B C А Б В', 'Работает с лишними пробелами');
+	});
 
 });

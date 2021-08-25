@@ -4,7 +4,7 @@ const sort = (sentence) => {
     if (typeof sentence !== "string")
         return "";
 
-    let collator = new Intl.Collator(["ru-RU", 'en-EN'], {sensitivity: "accent", ignorePunctuation: true});
+    let collator = new Intl.Collator(['en-EN', "ru-RU"], {sensitivity: "accent"});
     return sentence.toLowerCase().split(' ')
         .map(word => word.split('').sort(function (a, b) {
             return collator.compare(a, b);
@@ -13,5 +13,5 @@ const sort = (sentence) => {
                 return collator.compare(a, b);
             }
         )
-        .join(' ');
+        .join(' ').trim();
 }
