@@ -19,8 +19,8 @@ const sortLetters = word => word.split('').sort(compare).join('');
 const capitalizeWord = word => word.charAt(0).toUpperCase().concat(word.slice(1).toLowerCase());
 
 const sort = (sentence) => {
-    if (typeof sentence !== "string")
-        return "";
+    if (typeof sentence !== 'string')
+        return '';
 
     return sentence.split(' ')
         .map(sortLetters)
