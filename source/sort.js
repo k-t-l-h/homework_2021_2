@@ -1,7 +1,7 @@
 'use strict';
 
 
-const collator = new Intl.Collator(['en-EN', "ru-RU"], {sensitivity: "accent"});
+const collator = new Intl.Collator(['en-EN', 'ru-RU'], {sensitivity: 'accent'});
 const compare = (a, b) => collator.compare(a, b);
 
 /**
