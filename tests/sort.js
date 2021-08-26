@@ -53,4 +53,22 @@ QUnit.module('Тестируем функцию sort', function () {
 		assert.strictEqual(sort('a  а  б  b  c  в'), 'A B C А Б В', 'Работает с лишними пробелами');
 	});
 
+	QUnit.test('Вспомогательная функция делает все буквы, кроме первой, строчными', function (assert) {
+		assert.strictEqual(capitalizeWord('Ааа'), 'Ааа');
+		assert.strictEqual(capitalizeWord('АаА'), 'Ааа');
+		assert.strictEqual(capitalizeWord('аБв'), 'Абв');
+		assert.strictEqual(capitalizeWord('zzZz'), 'Zzzz',);
+		assert.strictEqual(capitalizeWord('AbCdE'), 'Abcde',);
+	});
+
+	QUnit.test('Вспомогательная функция сортирует буквы в слове', function (assert) {
+		assert.strictEqual(sortLetters('абв'), 'абв');
+		assert.strictEqual(sortLetters('аБв'), 'аБв');
+		assert.strictEqual(sortLetters('аёАЁ'), 'аАёЁ');
+		assert.strictEqual(sortLetters('zzZz'), 'zzZz',);
+		assert.strictEqual(sortLetters('AbCdE'), 'AbCdE',);
+	});
+
+
+
 });
